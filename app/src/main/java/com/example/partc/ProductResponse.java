@@ -6,7 +6,6 @@ import org.simpleframework.xml.Root;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlRootElement;
 
 @Root(name = "ProductResponse")
 public class ProductResponse {

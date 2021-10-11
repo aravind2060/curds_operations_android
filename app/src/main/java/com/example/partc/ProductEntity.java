@@ -1,14 +1,13 @@
 package com.example.partc;
 
 
-import com.google.gson.annotations.SerializedName;
+
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
 import java.io.Serializable;
 
-import javax.xml.bind.annotation.XmlRootElement;
 
 @Root(name = "products")
 public class ProductEntity implements Serializable {
