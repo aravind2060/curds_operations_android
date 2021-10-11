@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
           public void onStopTrackingTouch(@NonNull Slider slider) {
 
               textSize=slider.getValue();
-              adapter.notifyDataSetChanged();
+              adapter.changeTextSize(textSize);
           }
       });
     }
@@ -232,6 +232,7 @@ class ProductsAdapter extends  RecyclerView.Adapter<ProductsAdapter.ProductViewH
     List<ProductEntity> productEntityList=new ArrayList<ProductEntity>();
     float textSize;
     MainActivity mainActivity=new MainActivity();
+    ProductViewHolder productViewHolder;
 
     Context context;
     public ProductsAdapter(Context context,float textSize,List<ProductEntity> productEntities){
@@ -243,9 +244,14 @@ class ProductsAdapter extends  RecyclerView.Adapter<ProductsAdapter.ProductViewH
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ProductViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.displayproducts,parent,false));
+        productViewHolder=new ProductViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.displayproducts,parent,false));
+    return productViewHolder;
     }
 
+    public  void changeTextSize(float textSize){
+        productViewHolder.productPrice.setTextSize(textSize);
+        productViewHolder.productName.setTextSize(textSize);
+    }
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
 
